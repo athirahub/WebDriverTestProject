@@ -33,23 +33,25 @@ public class LoginPageTest extends Baseclass {
 		Assert.assertEquals(secure.getMessageText().replaceAll("×", "").trim(), "You logged into a secure area!");
 
 	}
+
 	@Test
 	public void loginFailureInvalidUsernameTest() {
 		login.enterUsername(Utils.generateRandomInput());
 		login.enterPassword(password);
 		SecureAreaPage secure = login.clickSubmitBtn();
 		Assert.assertEquals(secure.getMessageText().replaceAll("×", "").trim(), "Your username is invalid!");
-	
+
 	}
+
 	@Test
 	public void loginFailureInvalidPasswordTest() {
 		login.enterUsername(username);
 		login.enterPassword(Utils.generateRandomInput());
-		
 		SecureAreaPage secure = login.clickSubmitBtn();
 		Assert.assertEquals(secure.getMessageText().replaceAll("×", "").trim(), "Your password is invalid!");
-	
+
 	}
+
 	@Test
 	public void loginFailureNoInputTest() {
 		SecureAreaPage secure = login.clickSubmitBtn();

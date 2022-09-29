@@ -17,7 +17,7 @@ public class Page extends GeneralPage {
 	public final static int DEFAULT_TIME_FOR_PAGE_TO_LOAD = 50;
 	protected String wdWindowHandle;
 	protected Map<String, String> query;
-	private static final String URL = "https://naveenautomationlabs.com/opencart/index.php?route=";
+	private static final String URL = "http://localhost:7080";
 
 	private String getDocumentReadyState() {
 
@@ -51,9 +51,7 @@ public class Page extends GeneralPage {
 
 	@Override
 	protected void isLoaded() throws Error {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 }
-

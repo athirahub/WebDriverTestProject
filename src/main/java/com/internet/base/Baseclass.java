@@ -4,9 +4,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
-
+import java.util.logging.Level;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.logging.LogType;
+import org.openqa.selenium.logging.LoggingPreferences;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -49,12 +53,17 @@ public class Baseclass {
 		// Manages the driver for the browser on which testing is performed
 		username=prop.getProperty("username");
 		password=prop.getProperty("password");
-
+		
 		switch (DEFAULT_BROWSER.getBrowsername()) {
+		
+		
 		case "Chrome":
+			
+
 			webdriver = new Proxywrapper(WebDriverManager.chromedriver().create());
 			break;
 		case "Firefox":
+			
 			webdriver = new Proxywrapper(WebDriverManager.firefoxdriver().create());
 			break;
 		case "MicrosoftEdge":

@@ -18,30 +18,29 @@ public class CheckBoxesPageTest extends Baseclass {
 	public void startBorwserSession() {
 		intialization();
 		internet = new TheInternetPage(webdriver, true);
-
 		check = internet.clickCheckBoxes();
-
 	}
+
 	@Test
 	public void checkBoxesCheckedTest() {
-		if(check.isCheckBox1Selected()) {
+		if (check.isCheckBox1Selected()) {
 			check.selectCheckBox2();
-		}else {
+		} else {
 			check.selectCheckBox1();
 		}
-		Assert.assertEquals(check.isCheckBoxesSelected(),true);
+		Assert.assertEquals(check.isCheckBoxesSelected(), true);
 	}
+
 	@Test
 	public void checkBoxesUncheckedTest() {
-		if(check.isCheckBox1Selected()) {
+		if (check.isCheckBox1Selected()) {
 			check.selectCheckBox1();
-		}else {
+		} else {
 			check.selectCheckBox2();
 		}
-		Assert.assertEquals(check.isCheckBoxesSelected(),false);
+		Assert.assertEquals(check.isCheckBoxesSelected(), false);
 	}
-	
-	
+
 	@AfterMethod
 	public void quitBrowserSession() {
 		quitBrowser();
